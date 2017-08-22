@@ -17,7 +17,7 @@ let iconUrl = pinOutline(color, width, height)
 For a better understanding just go through the [example](index.html).
 
 ## Example
-<img src="example.png" width="650" />
+<img src="example.png" width="400" />
 
 ## License.
 MIT License. Copyright (c) 2017 Maxim Maltsev.
