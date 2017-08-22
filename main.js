@@ -1,7 +1,6 @@
 function pinOutline(pinOriginalColor, width, height) {
   let {pinColor, pinColorDark} = colorExtractor(pinOriginalColor)
   let pin = pinMaker(pinColor, pinColorDark, width, height)
-  document.getElementById('html').innerHTML = pin.toDataURL('image/png')
   return pin.toDataURL('image/png')
 }
 	  
