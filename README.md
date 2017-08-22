@@ -1,5 +1,5 @@
 # MarkerMaker
-Small service for outlining map pins.
+Small service for outlining map pins via HTML5 Canvas.
 
 Especially useful for creating custom [Leaflet](http://leafletjs.com/) markers.
 
