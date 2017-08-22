@@ -35,7 +35,7 @@ function colorDarkening(pinColor) {
   let rgbColorsArray = (pinColor.substring(4, pinColor.length - 1))
                          .split(',')
                          .map((item) => parseInt(item, 10))
-  let darkDegree = 100
+  let darkDegree = 60
   let [red, green, blue] =
     rgbColorsArray.map((color) => color >= darkDegree ? color - darkDegree : color)
   return 'rgb(' + red + ', ' + green + ', ' + blue + ')'
@@ -100,14 +100,14 @@ function setCoordinates(width, height) {
   let pls = {}
   pls.cp1x = 0
   pls.cp1y = -5
-  pls.cp2x = -(width + 4.5)
+  pls.cp2x = -width
   pls.cp2y = -(height - 2)
   pls.x = 0
   pls.y = -(height - 2)
 
   // Pin right side coordinates
   let prs = {}
-  prs.cp1x = width + 4.5
+  prs.cp1x = width
   prs.cp1y = -(height - 2)
   prs.cp2x = 0
   prs.cp2y = -5
