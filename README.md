@@ -14,7 +14,7 @@ Demo: https://mmaltsev.github.io/MarkerMaker/
 ```javascript
 let iconUrl = pinOutline(color, width, height)
 ```
-For a better understanding just go through the [example](index.html).
+For a better understanding just go through the [demo code](index.html).
 
 ## Example
 <img src="example.png" width="400" />
