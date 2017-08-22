@@ -5,12 +5,12 @@ Especially useful for creating custom [Leaflet](http://leafletjs.com/) markers.
 
 Demo: https://mmaltsev.github.io/MarkerMaker/
 
-##Setup
+## Setup
 ```html
 <script src="https://cdn.rawgit.com/mmaltsev/MarkerMaker/master/main.js"></script>
 ```
 
-##Usage
+## Usage
 ```javascript
 let iconUrl = pinOutline(color, width, height)
 ```
