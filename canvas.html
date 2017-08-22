@@ -62,13 +62,14 @@
     ctx.restore()
 
     let img = element.toDataURL('image/png')
-	
-    let link = document.createElement('a')
+    window.location.replace(img)
+	  
+    /*let link = document.createElement('a')
     link.href = img
     link.download = 'pin_' + pinColor
     document.body.appendChild(link)
     link.click()
-    document.body.removeChild(link)
+    document.body.removeChild(link)*/
   </script>
 </body>
 </html>
