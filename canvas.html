@@ -1,0 +1,75 @@
+<html>
+<head>
+</head>
+<body>	
+  <script>
+	let url = window.location.href
+    let pinOriginalColor = url.substr(url.search('color=') + 'color='.length, url.length - 1)
+	
+	let colorDiv = document.createElement("div")
+	colorDiv.style.color = pinOriginalColor
+	document.body.appendChild(colorDiv)
+	//Color in RGB 
+	let rgbColor = (window.getComputedStyle(colorDiv).color)
+	let rgbColorsArray = (rgbColor.substring(4, rgbColor.length - 1)).split(',')
+	let red = +rgbColorsArray[0]
+	let green = +rgbColorsArray[1]
+	let blue = +rgbColorsArray[2]
+	let pinColor = rgb2hex(red, green, blue)
+	let pinColorDark = (pinColor & 0xfefefe) >> 1
+	
+	function rgb2hex(red, green, blue) {
+	  let rgb = blue | (green << 8) | (red << 16)
+      return '#' + (0x1000000 + rgb).toString(16).slice(1)
+	}
+	
+    let element = document.createElement('canvas')
+    element.setAttribute('id', 'pin')
+    element.setAttribute('width', '50')
+    element.setAttribute('height', '82')
+
+    let pinX = 25
+    let pinY = 82
+    // let pinColor = '#414141'
+    let pin = {
+      x: pinX,
+      y: pinY,
+      color: pinColor,
+    }
+
+    let ctx = element.getContext('2d')
+    ctx.save()
+    ctx.translate(pin.x, pin.y)
+
+    ctx.beginPath()
+    ctx.moveTo(0, 0)
+    ctx.bezierCurveTo(0, -10, -54.5, -70, 0, -80)
+    ctx.bezierCurveTo(54.5, -70, 0, -10, 0, 0)
+    ctx.fillStyle = pin.color
+    ctx.fill()
+    ctx.strokeStyle = pinColorDark // '#222'
+    ctx.lineWidth = 1
+    ctx.stroke()
+    ctx.beginPath()
+    ctx.arc(0, -55, 8, 0, Math.PI * 2)
+    ctx.closePath()
+    ctx.fillStyle = 'white'
+    ctx.fill()
+	ctx.strokeStyle = pinColorDark // '#222'
+    ctx.lineWidth = 1
+    ctx.stroke()
+
+    ctx.restore()
+
+    let img = element.toDataURL('image/png')
+    window.location.replace(img)
+	  
+    /*let link = document.createElement('a')
+    link.href = img
+    link.download = 'pin_' + pinColor
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)*/
+  </script>
+</body>
+</html>
