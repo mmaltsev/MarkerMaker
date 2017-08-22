@@ -1,9 +1,21 @@
-function pinOutline(pinOriginalColor, width, height) {
+/**
+ * Main function.
+ * @constructor
+ * @param {string} pinOriginalColor - color of the pin.
+ * @param {number} width - width of the pin.
+ * @param {number} height - height of the pin.
+ */
+function pinOutline(pinOriginalColor, width = 50, height = 82) {
   let {pinColor, pinColorDark} = colorExtractor(pinOriginalColor)
   let pin = pinMaker(pinColor, pinColorDark, width, height)
   return pin.toDataURL('image/png')
 }
-	  
+
+/**
+ * Extracts color in RGB format.
+ * @constructor
+ * @param {string} pinOriginalColor - color of the pin.
+ */
 function colorExtractor(pinOriginalColor) {
   let colorDiv = document.createElement('div')
   colorDiv.style.color = pinOriginalColor
@@ -14,6 +26,11 @@ function colorExtractor(pinOriginalColor) {
   return {pinColor, pinColorDark}
 }
 
+/**
+ * Makes original color darker (for stroke).
+ * @constructor
+ * @param {string} pinColor - color of the pin.
+ */
 function colorDarkening(pinColor) {
   let rgbColorsArray = (pinColor.substring(4, pinColor.length - 1))
                          .split(',')
@@ -23,7 +40,15 @@ function colorDarkening(pinColor) {
     rgbColorsArray.map((color) => color >= darkDegree ? color - darkDegree : color)
   return 'rgb(' + red + ', ' + green + ', ' + blue + ')'
 }
-	  
+
+/**
+ * Outlines pin.
+ * @constructor
+ * @param {string} pinColor - color of the pin.
+ * @param {string} pinColorDark - color of the stroke.
+ * @param {number} width - width of the pin.
+ * @param {number} height - height of the pin.
+ */
 function pinMaker(pinColor, pinColorDark, width, height) {
   let element = document.createElement('canvas')
   element.setAttribute('id', 'pin')
@@ -64,8 +89,14 @@ function pinMaker(pinColor, pinColorDark, width, height) {
   return element
 }
 
+/**
+ * Sets pin coordinates for canvas outlining.
+ * @constructor
+ * @param {number} width - width of the pin.
+ * @param {number} height - height of the pin.
+ */
 function setCoordinates(width, height) {
-  // pin left side coordinates
+  // Pin left side coordinates
   let pls = {}
   pls.cp1x = 0
   pls.cp1y = -5
@@ -74,7 +105,7 @@ function setCoordinates(width, height) {
   pls.x = 0
   pls.y = -(height - 2)
 
-  // pin right side coordinates
+  // Pin right side coordinates
   let prs = {}
   prs.cp1x = width + 4.5
   prs.cp1y = -(height - 2)
@@ -83,7 +114,7 @@ function setCoordinates(width, height) {
   prs.x = 0
   prs.y = 0
 
-  // arc coordinates
+  // Arc coordinates
   let arc = {}
   arc.x = 0
   arc.y = -(0.67 * height)
