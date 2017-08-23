@@ -19,5 +19,5 @@ For a better understanding just go through the [demo code](index.html).
 ## Example
 <img src="example.png" width="400" />
 
-## License.
+## License
 MIT License. Copyright (c) 2017 Maxim Maltsev.
