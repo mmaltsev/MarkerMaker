@@ -1,0 +1,28 @@
+{
+  "name": "marker-maker",
+  "version": "0.1.0",
+  "description": "Small service for outlining Leaflet pin markers via HTML5 Canvas.",
+  "main": "main.js",
+  "scripts": {
+    "test": "jasmine"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmaltsev/MarkerMaker.git"
+  },
+  "keywords": [
+    "Leaflet",
+    "marker",
+    "pin",
+    "map"
+  ],
+  "author": "“Maxim <“maltsevmn@ya.ru”>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mmaltsev/MarkerMaker/issues"
+  },
+  "homepage": "https://github.com/mmaltsev/MarkerMaker#readme",
+  "devDependencies": {
+    "jasmine": "^2.7.0"
+  }
+}

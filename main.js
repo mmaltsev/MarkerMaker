@@ -1,11 +1,17 @@
 /**
- * Main function.
- * @constructor
+ * Outlines Leaflet map marker pins via HTML5 Canvas.
  * @param {string} pinOriginalColor - color of the pin.
  * @param {number} width - width of the pin.
  * @param {number} height - height of the pin.
+ * @return {string} - data URI in base64 representing an image.
  */
+
+module.exports = function MarkerMaker(pinOriginalColor, width, height) {
+  return pinOutline(pinOriginalColor, width, height)
+}
+
 function pinOutline(pinOriginalColor, width = 50, height = 82) {
+  console.log(colorExtractor(pinOriginalColor))
   let {pinColor, pinColorDark} = colorExtractor(pinOriginalColor)
   let pin = pinMaker(pinColor, pinColorDark, width, height)
   return pin.toDataURL('image/png')
@@ -13,8 +19,8 @@ function pinOutline(pinOriginalColor, width = 50, height = 82) {
 
 /**
  * Extracts color in RGB format.
- * @constructor
  * @param {string} pinOriginalColor - color of the pin.
+ * @return {object} - colors of pin and pin stroke.
  */
 function colorExtractor(pinOriginalColor) {
   let colorDiv = document.createElement('div')
@@ -28,8 +34,8 @@ function colorExtractor(pinOriginalColor) {
 
 /**
  * Makes original color darker (for stroke).
- * @constructor
  * @param {string} pinColor - color of the pin.
+ * @return {string} - color in RGB format.
  */
 function colorDarkening(pinColor) {
   let rgbColorsArray = (pinColor.substring(4, pinColor.length - 1))
@@ -43,11 +49,11 @@ function colorDarkening(pinColor) {
 
 /**
  * Outlines pin.
- * @constructor
  * @param {string} pinColor - color of the pin.
  * @param {string} pinColorDark - color of the stroke.
  * @param {number} width - width of the pin.
  * @param {number} height - height of the pin.
+ * @return {HTMLElement} - canvas.
  */
 function pinMaker(pinColor, pinColorDark, width, height) {
   let element = document.createElement('canvas')
@@ -91,9 +97,9 @@ function pinMaker(pinColor, pinColorDark, width, height) {
 
 /**
  * Sets pin coordinates for canvas outlining.
- * @constructor
  * @param {number} width - width of the pin.
  * @param {number} height - height of the pin.
+ * @return {object} - coordinates for pin outlining.
  */
 function setCoordinates(width, height) {
   // Pin left side coordinates
