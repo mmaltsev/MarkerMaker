@@ -3,7 +3,7 @@ Small service for outlining map pins via HTML5 Canvas.
 
 Especially useful for creating custom [Leaflet](http://leafletjs.com/) markers.
 
-Demo: https://mmaltsev.github.io/MarkerMaker/
+Fill free to try out the [demo](https://mmaltsev.github.io/MarkerMaker/example/) and go through the [documentation](https://mmaltsev.github.io/MarkerMaker/docs/).
 
 ## Setup
 ```html
@@ -17,7 +17,7 @@ let iconUrl = pinOutline(color, width, height)
 For a better understanding just go through the [demo code](index.html).
 
 ## Example
-<img src="example.png" width="400" />
+<img src="example/example.png" width="400" />
 
 ## License
 MIT License. Copyright (c) 2017 Maxim Maltsev.

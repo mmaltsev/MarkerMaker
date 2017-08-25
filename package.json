@@ -4,7 +4,8 @@
   "description": "Small service for outlining Leaflet pin markers via HTML5 Canvas.",
   "main": "main.js",
   "scripts": {
-    "test": "jasmine"
+    "test": "jasmine",
+    "docs": "./node_modules/.bin/jsdoc --readme README.md main.js -d docs"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/mmaltsev/MarkerMaker#readme",
   "devDependencies": {
-    "jasmine": "^2.7.0"
+    "jasmine": "^2.7.0",
+    "jsdoc": "^3.5.4"
   }
 }
