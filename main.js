@@ -5,13 +5,7 @@
  * @param {number} height - height of the pin.
  * @return {string} - data URI in base64 representing an image.
  */
-
-module.exports = function MarkerMaker(pinOriginalColor, width, height) {
-  return pinOutline(pinOriginalColor, width, height)
-}
-
-function pinOutline(pinOriginalColor, width = 50, height = 82) {
-  console.log(colorExtractor(pinOriginalColor))
+module.exports = function pinOutline(pinOriginalColor, width = 50, height = 82) {
   let {pinColor, pinColorDark} = colorExtractor(pinOriginalColor)
   let pin = pinMaker(pinColor, pinColorDark, width, height)
   return pin.toDataURL('image/png')
