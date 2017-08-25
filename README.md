@@ -10,20 +10,20 @@ Fill free to try out the [demo](https://mmaltsev.github.io/MarkerMaker/example/)
 npm install marker-maker --save
 ```
 ```javascript
-import * as MarkerMaker from 'marker-maker'
-let iconUrl = MarkerMaker(color, width, height)
+import * as markerOutliner from 'marker-maker'
 ```
 or simply add to your HTML file the following code:
 ```html
 <script src="https://cdn.rawgit.com/mmaltsev/MarkerMaker/2674a03d/dist/marker-maker.min.js"></script>
-...
-<script>
-  let iconUrl = markerOutliner(color, width, height)
-</script>
+```
+
+## Usage
+```javascript
+let iconUrl = markerOutliner(color, width, height)
 ```
 For a better understanding just go through the [demo code](example/index.html).
 
-## Usage
+## Options
 
 markerOutliner(color, width, height)
 
