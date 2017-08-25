@@ -1,3 +1,7 @@
+module.exports = function(pinOriginalColor, width = 50, height = 82) {
+  return markerOutliner(pinOriginalColor, width, height)
+}
+
 /**
  * Outlines Leaflet map marker pins via HTML5 Canvas.
  * @param {string} pinOriginalColor - color of the pin.
@@ -5,7 +9,7 @@
  * @param {number} height - height of the pin.
  * @return {string} - data URI in base64 representing an image.
  */
-function markerMaker(pinOriginalColor, width = 50, height = 82) {
+function markerOutliner(pinOriginalColor, width = 50, height = 82) {
   let { pinColor, pinColorDark } = colorExtractor(pinOriginalColor)
   let pin = pinMaker(pinColor, pinColorDark, width, height)
   return pin.toDataURL('image/png')

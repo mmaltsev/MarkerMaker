@@ -1,6 +1,6 @@
 {
   "name": "marker-maker",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Small service for outlining Leaflet pin markers via HTML5 Canvas",
   "main": "src/main.js",
   "scripts": {
