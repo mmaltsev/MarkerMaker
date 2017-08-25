@@ -5,9 +5,9 @@
   "main": "src/main.js",
   "scripts": {
     "test": "./node_modules/.bin/jasmine",
-    "docs": "./node_modules/.bin/jsdoc --readme docs/README.md main.js -d docs",
-    "uglify": "./node_modules/.bin/uglifyjs --output dist/marker-maker.min.js --compress --mangle -- src/main.js",
-    "build": "npm run clean:dist && npm run test && npm run docs && npm run uglify"
+    "docs": "./node_modules/.bin/jsdoc --readme docs/README.md src/main.js -d docs",
+    "uglify": "./node_modules/.bin/uglifyjs --output dist/marker-maker.v1.min.js --compress --mangle -- src/main.js",
+    "build": "npm run docs && npm run uglify"
   },
   "repository": {
     "type": "git",

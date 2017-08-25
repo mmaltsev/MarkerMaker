@@ -7,7 +7,7 @@ Fill free to try out the [demo](https://mmaltsev.github.io/MarkerMaker/example/)
 
 ## Setup
 ```html
-<script src="https://cdn.rawgit.com/mmaltsev/MarkerMaker/master/main.js"></script>
+<script src="https://cdn.rawgit.com/mmaltsev/MarkerMaker/master/dist/marker-maker.v1.min.js"></script>
 ```
 
 ## Usage
