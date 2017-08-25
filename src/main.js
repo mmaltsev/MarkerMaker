@@ -1,15 +1,4 @@
 /**
- * Exporting wrap over markerMaker module.
- * @param {string} pinOriginalColor - color of the pin.
- * @param {number} width - width of the pin.
- * @param {number} height - height of the pin.
- * @return {string} - data URI in base64 representing an image.
- */
-module.exports = function(pinOriginalColor, width = 50, height = 82) {
-  return markerMaker(pinOriginalColor, width, height)
-}
-
-/**
  * Outlines Leaflet map marker pins via HTML5 Canvas.
  * @param {string} pinOriginalColor - color of the pin.
  * @param {number} width - width of the pin.
