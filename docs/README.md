@@ -7,14 +7,14 @@ Fill free to try out the [demo](https://mmaltsev.github.io/MarkerMaker/example/)
 
 ## Setup
 ```html
-<script src="https://cdn.rawgit.com/mmaltsev/MarkerMaker/master/main.js"></script>
+<script src="https://cdn.rawgit.com/mmaltsev/MarkerMaker/master/src/marker-maker.min.js"></script>
 ```
 
 ## Usage
 ```javascript
 let iconUrl = pinOutline(color, width, height)
 ```
-For a better understanding just go through the [demo code](index.html).
+For a better understanding just go through the [demo code](example/index.html).
 
 ## Example
 <img src="../example/example.png" width="400" />

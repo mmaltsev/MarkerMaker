@@ -7,7 +7,7 @@
     <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
     integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
     crossorigin=""></script>
-    <script src="../main.js"></script>
+    <script src="https://cdn.rawgit.com/mmaltsev/MarkerMaker/master/dist/marker-maker.min.js"></script>
   </head>
   <body>
     <h1><a href="https://github.com/mmaltsev/MarkerMaker">MarkerMaker</a></h1>
@@ -17,7 +17,7 @@
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
         .addTo(map)
 
-      let blueIconUrl = pinOutline('lightblue', 50, 82)
+      let blueIconUrl = markerMaker('lightblue', 50, 82)
       let blueIcon = L.icon({
         iconUrl: blueIconUrl,
         shadowUrl: 'leafletmarker-shadow.png',
@@ -29,7 +29,7 @@
       L.marker([50.7, 7.1], {icon: blueIcon})
         .addTo(map)
 
-      let redIconUrl = pinOutline('lightcoral', 50, 82)
+      let redIconUrl = markerMaker('lightcoral', 50, 82)
       let redIcon = L.icon({
         iconUrl: redIconUrl,
         shadowUrl: 'leafletmarker-shadow.png',

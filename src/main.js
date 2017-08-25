@@ -1,3 +1,20 @@
+const jsdom = require("jsdom")
+const { JSDOM } = jsdom
+const dom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`)
+const { window } = (new JSDOM(`...`))
+const { document } = (new JSDOM(`...`)).window;
+
+/**
+ * Exporting wrap over markerMaker module.
+ * @param {string} pinOriginalColor - color of the pin.
+ * @param {number} width - width of the pin.
+ * @param {number} height - height of the pin.
+ * @return {string} - data URI in base64 representing an image.
+ */
+module.exports = function(pinOriginalColor, width = 50, height = 82) {
+  return markerMaker(pinOriginalColor, width, height)
+}
+
 /**
  * Outlines Leaflet map marker pins via HTML5 Canvas.
  * @param {string} pinOriginalColor - color of the pin.
@@ -5,8 +22,8 @@
  * @param {number} height - height of the pin.
  * @return {string} - data URI in base64 representing an image.
  */
-module.exports = function pinOutline(pinOriginalColor, width = 50, height = 82) {
-  let {pinColor, pinColorDark} = colorExtractor(pinOriginalColor)
+function markerMaker(pinOriginalColor, width = 50, height = 82) {
+  let { pinColor, pinColorDark } = colorExtractor(pinOriginalColor)
   let pin = pinMaker(pinColor, pinColorDark, width, height)
   return pin.toDataURL('image/png')
 }
@@ -23,7 +40,7 @@ function colorExtractor(pinOriginalColor) {
   let pinColor = (window.getComputedStyle(colorDiv).color)
   document.body.removeChild(colorDiv)
   let pinColorDark = colorDarkening(pinColor)
-  return {pinColor, pinColorDark}
+  return { pinColor, pinColorDark }
 }
 
 /**
@@ -62,7 +79,7 @@ function pinMaker(pinColor, pinColorDark, width, height) {
     strokeColor: pinColorDark,
   }
 
-  let {pls, prs, arc} = setCoordinates(width, height)
+  let { pls, prs, arc } = setCoordinates(width, height)
 
   let ctx = element.getContext('2d')
   ctx.save()
@@ -122,5 +139,5 @@ function setCoordinates(width, height) {
   arc.sAngle = 0
   arc.eAngle = Math.PI * 2
 
-  return {pls, prs, arc}
+  return { pls, prs, arc }
 }
