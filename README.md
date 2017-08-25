@@ -14,7 +14,7 @@ import * as markerOutliner from 'marker-maker'
 ```
 or simply add to your HTML file the following code:
 ```html
-<script src="https://cdn.rawgit.com/mmaltsev/MarkerMaker/2674a03d/dist/marker-maker.min.js"></script>
+<script src="https://cdn.rawgit.com/mmaltsev/MarkerMaker/9feaac61/dist/marker-maker.min.js"></script>
 ```
 
 ## Usage

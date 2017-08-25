@@ -17,7 +17,7 @@
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
         .addTo(map)
 
-      let blueIconUrl = markerMaker('lightblue', 50, 82)
+      let blueIconUrl = markerOutliner('lightblue', 50, 82)
       let blueIcon = L.icon({
         iconUrl: blueIconUrl,
         shadowUrl: 'leafletmarker-shadow.png',
@@ -29,7 +29,7 @@
       L.marker([50.7, 7.1], {icon: blueIcon})
         .addTo(map)
 
-      let redIconUrl = markerMaker('lightcoral', 50, 82)
+      let redIconUrl = markerOutliner('lightcoral', 50, 82)
       let redIcon = L.icon({
         iconUrl: redIconUrl,
         shadowUrl: 'leafletmarker-shadow.png',
