@@ -1,9 +1,3 @@
-const jsdom = require("jsdom")
-const { JSDOM } = jsdom
-const dom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`)
-const { window } = (new JSDOM(`...`))
-const { document } = (new JSDOM(`...`)).window;
-
 /**
  * Exporting wrap over markerMaker module.
  * @param {string} pinOriginalColor - color of the pin.
