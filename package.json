@@ -1,12 +1,13 @@
 {
   "name": "marker-maker",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Small service for outlining Leaflet pin markers via HTML5 Canvas",
   "main": "src/main.js",
   "scripts": {
     "test": "./node_modules/.bin/jasmine",
     "docs": "./node_modules/.bin/jsdoc --readme docs/README.md src/main.js -d docs",
     "uglify": "./node_modules/.bin/uglifyjs --output dist/marker-maker.min.js --compress --mangle -- src/main.js",
+    "gulp": "gulp",
     "build": "npm run docs && npm run uglify"
   },
   "repository": {
@@ -29,6 +30,11 @@
   },
   "homepage": "https://github.com/mmaltsev/MarkerMaker#readme",
   "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-uglify": "^3.0.0",
     "jasmine": "^2.8.0",
     "jsdoc": "^3.5.4",
     "uglify-es": "^3.0.28"
