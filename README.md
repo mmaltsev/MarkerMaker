@@ -32,6 +32,7 @@ markerOutliner(color, width, height)
 | color        | string  | color of the pin ([standard](https://www.w3schools.com/colors/colors_names.asp) / HEX / RGB) |
 | width         | number  | width of the pin |
 | height | number   | height of the pin |
+| markerType | string   | pin / house |
 
 ## Example
 <img src="example/example.png" width="400" />

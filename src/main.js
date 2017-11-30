@@ -3,16 +3,22 @@ module.exports = function(pinOriginalColor, width = 50, height = 82) {
 }
 
 /**
- * Outlines Leaflet map marker pins via HTML5 Canvas.
+ * Outlines Leaflet map marker pins/houses via HTML5 Canvas.
  * @param {string} pinOriginalColor - color of the pin.
  * @param {number} width - width of the pin.
  * @param {number} height - height of the pin.
  * @return {string} - data URI in base64 representing an image.
  */
-function markerOutliner(pinOriginalColor, width = 50, height = 82) {
+function markerOutliner(pinOriginalColor, width = 50, height = 82, markerType = 'pin') {
   let { pinColor, pinColorDark } = colorExtractor(pinOriginalColor)
-  let pin = pinMaker(pinColor, pinColorDark, width, height)
-  return pin.toDataURL('image/png')
+  let marker
+  if (markerType === 'pin')
+    marker = pinMaker(pinColor, pinColorDark, width, height)
+  else if (markerType === 'house')
+    marker = houseMaker(pinColor, pinColorDark, width, height)
+  else
+    console.log('Unknown type of marker!')
+  return marker.toDataURL('image/png')
 }
 
 /**
@@ -127,4 +133,56 @@ function setCoordinates(width, height) {
   arc.eAngle = Math.PI * 2
 
   return { pls, prs, arc }
+}
+
+/**
+ * Outlines house.
+ * @param {string} pinColor - color of the pin.
+ * @param {string} pinColorDark - color of the stroke.
+ * @param {number} width - width of the pin.
+ * @param {number} height - height of the pin.
+ * @return {HTMLElement} - canvas.
+ */
+function houseMaker(pinColor, pinColorDark, width, height) {
+  let element = document.createElement('canvas')
+  element.setAttribute('id', 'house')
+  element.setAttribute('width', '' + width)
+  element.setAttribute('height', '' + height)
+  let pin = {
+    x: width,
+    y: height,
+    pinColor: pinColor,
+    arcColor: 'white',
+    strokeColor: pinColorDark,
+  }
+
+  let lw = 2
+  let rh = height*0.4 // roof height
+  let dlm = width*0.36 // door left margin
+  let drm = width*0.64 // door right margin
+  let dtm = height*0.68 // door top margin
+
+  let ctx = element.getContext('2d')
+  ctx.save()
+  ctx.moveTo(lw/2, rh)
+  ctx.lineTo(width-lw/2, rh)
+  ctx.lineTo(width-lw/2, height-lw/2)
+  ctx.lineTo(lw/2, height-lw/2)
+  ctx.lineTo(lw/2, rh)
+  ctx.lineTo(width/2, lw/2)
+  ctx.lineTo(width-lw/2, rh)
+
+  ctx.moveTo(dlm, height-lw/2)
+  ctx.lineTo(dlm, dtm)
+  ctx.lineTo(drm, dtm)
+  ctx.lineTo(drm, height-lw/2)
+  ctx.closePath()
+  ctx.fillStyle = pin.pinColor
+  ctx.fill()
+  ctx.strokeStyle = pin.strokeColor
+  ctx.lineWidth = 2
+  ctx.stroke()
+  ctx.restore()
+
+  return element
 }
