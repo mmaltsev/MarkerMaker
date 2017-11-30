@@ -19,20 +19,20 @@ or simply add to your HTML file the following code:
 
 ## Usage
 ```javascript
-let iconUrl = markerOutliner(color, width, height)
+let iconUrl = markerOutliner(color, width, height, markerType)
 ```
 For a better understanding just go through the [demo code](example/index.html).
 
 ## Options
 
-markerOutliner(color, width, height)
+markerOutliner(color, width, height, markerType)
 
 | Variable         | Type    | Description            |
 | ----------------- | ------- | ---------------------- |
 | color        | string  | color of the pin ([standard](https://www.w3schools.com/colors/colors_names.asp) / HEX / RGB) |
 | width         | number  | width of the pin |
 | height | number   | height of the pin |
-| markerType | string   | pin / house |
+| markerType | string   | pin / house (optional, 'pin' by default) |
 
 ## Example
 <img src="example/example.png" width="400" />
