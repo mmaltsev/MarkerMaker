@@ -1,5 +1,5 @@
-module.exports = function(pinOriginalColor, width = 50, height = 82) {
-  return markerOutliner(pinOriginalColor, width, height)
+module.exports = function(pinOriginalColor, width = 50, height = 82, markerType = 'pin') {
+  return markerOutliner(pinOriginalColor, width, height, markerType)
 }
 
 /**
