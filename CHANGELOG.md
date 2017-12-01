@@ -1,4 +1,7 @@
-#0.2.0
+#0.2.1
+Updated examples and minor bug fixes.
+
+##0.2.0
 Added possibility to draw houses.
 
 ##0.1.2

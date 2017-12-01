@@ -14,29 +14,57 @@
     <h1><a href="https://github.com/mmaltsev/MarkerMaker">MarkerMaker</a></h1>
     <div id="map" style="height: 82%;"></div>
     <script>
-      let map = L.map('map').setView([52, 25], 5)
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
-        .addTo(map)
+      /* Global Leaflet Map variable */
+      var map = L.map('map').setView([52, 25], 5)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png')
+          .addTo(map)
 
-      let blueIconUrl = markerOutliner('lightblue', 50, 82, 'pin')
-      let blueIcon = L.icon({
-        iconUrl: blueIconUrl,
-        shadowUrl: 'leafletmarker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41],
-      })
-      L.marker([50.7, 7.1], {icon: blueIcon})
-        .addTo(map)
+      /* Generates random values for marker properties */
+      function randomizer(markerType) {
+        var colors = ['lightblue', 'lightcoral', 'lightseagreen', 'lightpink', 'lightsalmon', 'lightcyan']
 
-      let redIconUrl = markerOutliner('lightcoral', 20, 25, 'house')
-      let redIcon = L.icon({
-        iconUrl: redIconUrl,
-        iconAnchor: [12, 11],
-      })
-      L.marker([55.7, 37.6], {icon: redIcon})
-        .addTo(map)
+        var randInd = Math.floor((Math.random() * colors.length))
+        var randColor = colors[randInd]
+        var randLng = ((Math.random() * 13) + 43).toFixed(2)
+        var randLtd = ((Math.random() * 40) + 7).toFixed(2)
+        if (markerType == 'pin') {
+          var randWidth = Math.floor((Math.random() * 25) + 15)
+          var randHeight = randWidth * 41 / 25
+        } else if (markerType == 'house') {
+          var randWidth = Math.floor((Math.random() * 15) + 10)
+          var randHeight = randWidth * 18 / 15
+        } else {
+          console.log('Unknown marker type!')
+        }
+        return { randColor, randLng, randLtd, randWidth, randHeight }
+      }
+
+      /* Adds generated marker to the map */
+      function markerAdd(markerUrl) {
+        var pinIcon = L.icon({
+          iconUrl: markerUrl,
+          shadowUrl: 'leafletmarker-shadow.png',
+          iconSize: [randWidth, randHeight],
+          iconAnchor: [randWidth / 2, randHeight],
+          shadowSize: [randHeight, randHeight],
+        })
+        L.marker([randLng, randLtd], {icon: pinIcon})
+          .addTo(map)
+      }
+      
+      /* Random pin outliner */
+      for (var i = 0; i < 20; i++) {
+        var { randColor, randLng, randLtd, randWidth, randHeight } = randomizer('pin')
+        var pinUrl = markerOutliner(randColor, 50, 82, 'pin')
+        markerAdd(pinUrl)
+      }
+
+      /* Random houses outliner */
+      for (var i = 0; i < 20; i++) {
+        var { randColor, randLng, randLtd, randWidth, randHeight } = randomizer('house')
+        var houseUrl = markerOutliner(randColor, 20, 25, 'house')
+        markerAdd(houseUrl)
+      }
     </script>
   </body>
 </html>
