@@ -29,10 +29,10 @@ markerOutliner(color, width, height, markerType)
 
 | Variable         | Type    | Description            |
 | ----------------- | ------- | ---------------------- |
-| color        | string  | color of the pin ([standard](https://www.w3schools.com/colors/colors_names.asp) / HEX / RGB) |
-| width         | number  | width of the pin |
-| height | number   | height of the pin |
-| markerType | string   | pin / house (optional, 'pin' by default) |
+| color        | string  | color of the marker ([standard](https://www.w3schools.com/colors/colors_names.asp) / HEX / RGB) |
+| width         | number  | width of the marker |
+| height | number   | height of the marker |
+| markerType | string   | 'pin' / 'house' (optional, 'pin' by default) |
 
 ## Example
 <img src="example/example.png" width="400" />
