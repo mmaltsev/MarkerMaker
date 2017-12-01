@@ -1,4 +1,7 @@
-#0.2.1
+##0.2.2
+Fixed bug with houses outlining.
+
+##0.2.1
 Updated examples and minor bug fixes.
 
 ##0.2.0
